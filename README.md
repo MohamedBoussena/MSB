@@ -39,7 +39,22 @@ X = pd.DataFrame({
 X.index.name = 'SUBJID'
 
 # Create survival target (structured array with Status and Survival_in_days)
-y = np.array([(True, 100.5), (False, 200.3)],  # (event, time) pairs
+risk_score = (0.05 * age) + (0.8 * gene_a)
+time = np.exp(5 - 0.1 * risk_score) + np.random.normal(0, 2, n_samples)
+time = np.maximum(time, 1)  # Ensure positive time
+status = np.random.choice([True, False], n_samples, p=[0.8, 0.2])
+
+X = pd.DataFrame({
+    'age': age, 'bmi': bmi, 
+    'gene_A': gene_a, 'gene_B': gene_b
+})
+X.index.name = 'SUBJID'
+
+# Introduce Blockwise Missingness (30% of patients missing genomics)
+X.iloc[70:, 2:] = np.nan 
+X.iloc[:35, :2] = np.nan 
+# Format target for sksurv
+y = np.array([(s, t) for s, t in zip(status, time)],
              dtype=[('Status', 'bool'), ('Survival_in_days', 'float')])
 
 # 2. Define modality blocks
