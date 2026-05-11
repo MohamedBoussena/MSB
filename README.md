@@ -7,7 +7,7 @@ Multimodality Stacking with Blockwise Missing Values
 The **MSB (Multimodality Stacking with Blockwise Missing Values)** package is designed for **survival analysis** in multimodal datasets with blockwise missing values. It integrates predictions from multiple modality-specific base learners and stacks them with a meta-learner to improve predictive performance.
 
 
-![Figure MSB](Figure_paper_MSLB.png)
+![Figure MSB](Figure_paper_MSB.png)
 
 ## Installation
 
