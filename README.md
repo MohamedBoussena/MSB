@@ -11,8 +11,11 @@ The **MSB (Multimodality Stacking with Blockwise Missing Values)** package is de
 
 ## Installation
 
+Clone the repository and install the package in editable mode:
+
 ```bash
-pip install msb_package
+cd msb_package
+pip install -e .
 ```
 
 ## Quick Start
