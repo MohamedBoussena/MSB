@@ -14,6 +14,8 @@ The **MSB (Multimodality Stacking with Blockwise Missing Values)** package is de
 Clone the repository and install the package in editable mode:
 
 ```bash
+git clone https://github.com/MohamedBoussena/MSB.git
+
 cd msb_package
 pip install -e .
 ```
